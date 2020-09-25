@@ -59,6 +59,7 @@ def image(filename):
     filePath = os.path.join(path, filename)
     print(filePath)
     return send_file(filePath, mimetype='image/jpg')
+    
     # response = make_response(send_file(filePath, mimetype='image/jpg'))
     # response.headers['X-filename'] = random_filename.split('_')[1].split('.')[0]
     # return response

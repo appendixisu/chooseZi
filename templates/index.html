@@ -12,6 +12,25 @@
 
     <title>選字</title>
 
+    <style>
+        img {
+            width: 100% !important;
+        }
+
+        @media screen and (max-width: 1000px) {
+            img {
+                width: 50% !important;
+            }
+        }
+
+        h6 {
+            color: gray;
+        }
+
+        body {
+            width: 99%;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,14 +61,22 @@
         var filename = '';
         let transform = {
             '<>': 'div',
-            'class': 'col p-3',
+            'class': 'col-lg p-lg-1 m-lg-0 col-12 p-3',
             'html': [{
-                    '<>': 'h3',
-                    'text': '${filename}',
+                    '<>': 'h6',
+                    'text': function () {
+                        return `${this.filename.split('_')[0].split('-')[0]}`
+                    }
+                },
+                {
+                    '<>': 'h1',
+                    'text': function () {
+                        return `${this.filename.split('_')[0].split('-')[2]}`
+                    }
                 },
                 {
                     '<>': 'img',
-                    'class': 'p-3',
+                    'class': 'm-1 border border-info',
                     'src': function () {
                         return `img/${this.filename}`
                     }
@@ -60,6 +87,8 @@
                 {
                     '<>': 'input',
                     'type': 'radio',
+                    'class': 'radio3',
+                    'checked': '',
                     'name': '${num}',
                     'id': function () {
                         return `${this.num}_1`;
@@ -75,8 +104,12 @@
                     'text': 'YES',
                 },
                 {
+                    '<>': 'br'
+                },
+                {
                     '<>': 'input',
                     'type': 'radio',
+                    'class': 'radio3',
                     'name': '${num}',
                     'id': function () {
                         return `${this.num}_2`;
@@ -92,8 +125,12 @@
                     'text': '我不知道',
                 },
                 {
+                    '<>': 'br'
+                },
+                {
                     '<>': 'input',
                     'type': 'radio',
+                    'class': 'radio3',
                     'name': '${num}',
                     'id': function () {
                         return `${this.num}_0`;
@@ -142,25 +179,25 @@
                     continue;
                 }
 
-
-                $.ajax({
-                    url: "/check/" + fn,
-                    type: "get", //send it through get method
-                    data: {
-                        isRight: value
-                    },
-                    success: function (response) {
-                        //Do Something
-                        console.log(response)
-                        // window.location.reload(false);
-                    },
-                    error: function (xhr) {
-                        //Do Something to handle error
-                        // window.location.reload(false);
-                    }
-                });
+                console.log(fn, value)
+                // $.ajax({
+                //     url: "/check/" + fn,
+                //     type: "get", //send it through get method
+                //     data: {
+                //         isRight: value
+                //     },
+                //     success: function (response) {
+                //         //Do Something
+                //         console.log(response)
+                //         // window.location.reload(false);
+                //     },
+                //     error: function (xhr) {
+                //         //Do Something to handle error
+                //         // window.location.reload(false);
+                //     }
+                // });
             };
-            window.location.reload(false);
+            // window.location.reload(false);
         }
 
 

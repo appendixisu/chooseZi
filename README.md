@@ -12,3 +12,13 @@ Organize the data set of words
 
 1. zi2.py: 透過教育部常用字集（4808字)，來收集書法字圖片
 2. ziWeb.py: 預覽字體，並且挑選圖片
+
+---
+
+### ziWeb
+
+標記資料用網頁，透過網頁來檢查收集來的圖片，是否正確
+
+![screenshot](screenshot.png)
+
+---
