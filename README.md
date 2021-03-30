@@ -19,6 +19,6 @@ Organize the data set of words
 
 標記資料用網頁，透過網頁來檢查收集來的圖片，是否正確
 
-![screenshot](screenshot.png)
+![screenshot](ScreenShot.png)
 
 ---
